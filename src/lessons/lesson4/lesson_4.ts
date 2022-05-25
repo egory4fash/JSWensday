@@ -8,11 +8,21 @@ console.log('lesson 4');
 // Создайте промис, который постоянно находиться в состоянии pending.
 // В конструкторе промиса выведите в консоль сообщение "Promise is created".
 
+// let task01 = new Promise((res,rej) =>{
+//     console.log("Promise is created")
+// })
+
 
 // Task 02
 // Создайте промис, который после создания сразу же переходит в состояние resolve
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
+
+// let task02 = Promise.resolve("Promise Data").then( (resolve) => {
+//     console.log('task02RESULT ' + resolve)
+// })
+//
+// console.log(task02)
 
 
 // Task 03
@@ -20,12 +30,24 @@ console.log('lesson 4');
 // и возвращает строку 'Promise Error'
 // Получите данные промиса и выведите их в консоль
 
-
+// let task03 = Promise.reject("Promise Error").catch( (reject) => {
+//     console.log('task03RESULT ' + reject)
+// })
+//
+// console.log(task03)
 // Task 04
 // Создайте промис, который переходит в состояние resolved через 3с.
 // (Используйте setTimeout)
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
+
+// let task04 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('Promise Data')
+//     }, 3000)
+// }).then((resolve) => {
+//     console.log(resolve)
+// })
 
 
 // Task 05
@@ -40,6 +62,24 @@ console.log('lesson 4');
 // описаного выше объекта: свойство promise получает новый созданный промис,
 // свойства resolve и reject получают ссылки на соответствующие функции
 // resolve и reject. Следующие два обработчика запускают методы resolve и reject.
+
+let handlePromise = {
+    promise:null,
+    resolve:null,
+    reject:null,
+    onSuccess (param:any) {
+        console.log(`Promise is resolved with data: ${param}`)
+    },
+    onError (param:any) {`Promise is rejected with error: ${param}`}
+}
+
+export const createHandler = () => {
+    let buttonPromise = new Promise((resolve, reject) => {
+        this.promise = buttonPromise
+    })
+}
+export const resolveHandler = () => {}
+export const rejectHandler = () => {}
 
 
 // Task 06
@@ -57,6 +97,6 @@ console.log('lesson 4');
 // и выведите в консоль {name, age, city}
 
 
-
 // just a plug
-export default ()=>{};
+export default () => {
+};
